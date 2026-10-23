@@ -96,6 +96,13 @@
   .chips span{font-family:"JetBrains Mono",monospace;font-size:12px;padding:4px 8px;border-radius:5px;background:#1d232c;color:var(--muted)}
   .case a.more{display:inline-block;margin-top:14px;color:var(--key);font-size:14px}
 
+  .sub{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:26px 0 12px}
+  .sub:first-of-type{margin-top:0}
+  .minis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .case.mini{margin-bottom:0;display:flex;flex-direction:column}
+  .case.mini p{color:#c9ced6;font-size:15px}
+  .case.mini .more{margin-top:auto;padding-top:12px}
+  .also{color:var(--muted);font-size:15px;margin-top:18px}
   /* experience */
   .job{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:22px 0;border-top:1px dashed var(--line)}
   .job:first-of-type{border-top:0;padding-top:0}
@@ -143,7 +150,7 @@
     .nums{grid-template-columns:1fr 1fr}
     .num:nth-child(2){border-right:0}
     .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--line)}
-    .case .grid,.skills,.about,.edu{grid-template-columns:1fr}
+    .case .grid,.skills,.about,.edu,.minis{grid-template-columns:1fr}
     .job{grid-template-columns:1fr;gap:6px}
     .contacts{grid-template-columns:1fr}
     nav .logo{display:none}
@@ -176,7 +183,7 @@
       <div class="btns">
         <a class="btn main" href="https://t.me/toptyga7">Написать в Telegram</a>
         <a class="btn" href="resume.pdf" download>Скачать резюме</a>
-        <a class="btn" href="https://github.com/toptyga78">GitHub</a>
+        <a class="btn" href="https://github.com/toptyga88">GitHub</a>
       </div>
     </div>
 
@@ -201,7 +208,7 @@
   </header>
 
   <div class="nums">
-    <div class="num"><b>25</b><span>брендов-конкурентов в системе аналитики</span></div>
+    <div class="num"><b>23</b><span>бренда конкурентов в системе аналитики</span></div>
     <div class="num"><b>100 000+</b><span>записей в год тянет пайплайн из госреестра</span></div>
     <div class="num"><b>200+</b><span>магазинов сети, по которым разбираю инвентаризации</span></div>
     <div class="num"><b>C1</b><span>английский, CES London</span></div>
@@ -212,16 +219,19 @@
   <div class="wrap">
     <div class="h2"><span class="n">01</span><h2>Что я сделал</h2></div>
 
+    <div class="sub">рабочие проекты</div>
+
     <div class="case">
       <div class="where">Декаст Инжиниринг, 2026</div>
-      <h3>Система аналитики конкурентов на данных госреестра</h3>
-      <div class="flow"><span>ФГИС «Аршин»</span><i>→</i><span>Python + API</span><i>→</i><span>PostgreSQL</span><i>→</i><span>DataLens</span></div>
+      <h3>АРШИН: аналитика рынка водо- и теплосчётчиков на данных госреестра</h3>
+      <div class="flow"><span>ФГИС «Аршин»</span><i>→</i><span>Python + REST API</span><i>→</i><span>PostgreSQL</span><i>→</i><span>DataLens</span></div>
       <div class="grid">
-        <p><em>задача</em>Компании нужно было видеть, сколько счётчиков выпускают конкуренты и как это меняется по месяцам. Готовых данных не было.</p>
-        <p><em>что сделал</em>Нашёл открытый реестр поверок, написал сборщик на Python, спроектировал базу и настроил обновление по расписанию. Придумал правило, как отличать производителей от поверочных организаций, иначе бренды путались.</p>
-        <p><em>результат</em>25 брендов за несколько лет с разбивкой по месяцам. Данные обновляются сами, команда смотрит рынок в дашборде и принимает по нему решения.</p>
+        <p><em>задача</em>Компании нужно было видеть, сколько приборов выпускают конкуренты и как это меняется по месяцам. Готовых данных не было, а ручной сбор устаревал за неделю.</p>
+        <p><em>что сделал</em>Нашёл открытый реестр поверок, написал сбор данных через API, спроектировал базу со справочниками и фактами, настроил ежемесячное обновление. Придумал правило, как отличать производителей от поверочных организаций, иначе доли брендов искажались.</p>
+        <p><em>результат</em>23 бренда конкурентов за несколько лет с разбивкой по месяцам. Данные обновляются сами, руководство смотрит рынок в дашборде. Есть ER-диаграмма, схема пайплайна и инструкция.</p>
       </div>
       <div class="chips"><span>python</span><span>rest api</span><span>postgresql</span><span>sql</span><span>datalens</span><span>git</span></div>
+      <a class="more" href="https://github.com/toptyga88/ARSHIN">Код и документация на GitHub →</a>
     </div>
 
     <div class="case">
@@ -230,23 +240,76 @@
       <div class="flow"><span>выгрузки 1С</span><i>→</i><span>Power Query</span><i>→</i><span>Excel</span><i>→</i><span>записка (VBA)</span></div>
       <div class="grid">
         <p><em>задача</em>После каждой инвентаризации нужно понять, откуда взялись излишки и недостачи, и объяснить это руководству.</p>
-        <p><em>что сделал</em>Свёл разрозненные выгрузки из 1С в один отчёт через Power Query, разбираю расхождения и пересортицу. Написал макрос, который сам собирает аналитическую записку.</p>
+        <p><em>что сделал</em>Свёл разрозненные выгрузки из 1С в один отчёт через Power Query, разбираю расхождения и пересортицу. Написал макрос на VBA, который сам собирает аналитическую записку, и HTML-редактор, где записку можно оформить со скриншотами и вложениями и выгрузить в PDF.</p>
         <p><em>результат</em>Записка, которую раньше собирали руками, теперь формируется автоматически. Больше времени остаётся на сам анализ.</p>
       </div>
-      <div class="chips"><span>excel</span><span>power query</span><span>vba</span><span>1с</span><span>google sheets</span><span>python</span></div>
+      <div class="chips"><span>excel</span><span>power query</span><span>vba</span><span>html / js</span><span>1с</span><span>google sheets</span></div>
+    </div>
+
+    <div class="sub">свои продукты</div>
+
+    <div class="case">
+      <div class="where">пет-проект</div>
+      <h3>FINLY: Telegram-бот и мини-приложение для личных финансов</h3>
+      <div class="flow"><span>Telegram-бот (aiogram 3)</span><i>+</i><span>Mini App (HTML / JS)</span><i>→</i><span>FastAPI</span><i>→</i><span>SQLite</span></div>
+      <div class="grid">
+        <p><em>зачем</em>Хотел вести деньги там, где и так провожу время, без отдельных приложений и таблиц.</p>
+        <p><em>что внутри</em>Счета и общий капитал, доходы, расходы и переводы, аналитика по категориям и динамике, дневной лимит, цели накоплений и планирование платежей. Операции можно вносить прямо в диалоге с ботом.</p>
+        <p><em>как сделано</em>Бэкенд и API на FastAPI, интерфейс на HTML и JavaScript внутри Telegram, база SQLite. Развёрнуто на Linux за Nginx с HTTPS.</p>
+      </div>
+      <div class="chips"><span>python</span><span>fastapi</span><span>aiogram 3</span><span>telegram mini apps</span><span>sqlite</span><span>javascript</span><span>nginx</span></div>
+      <a class="more" href="https://github.com/toptyga88/FINLY">Код на GitHub →</a>
     </div>
 
     <div class="case">
       <div class="where">пет-проект</div>
-      <h3>Сайт и Telegram-бот для моей футбольной команды</h3>
+      <h3>Telegram-бот и сайт для моей футбольной команды</h3>
       <div class="grid">
         <p><em>зачем</em>Я играю в любительском клубе, и отмечаться на тренировки, вести статистику и считать посещаемость вручную было неудобно.</p>
-        <p><em>что внутри</em>Отметки на тренировки, карточки игроков, лучшие и худшие игры, средний индекс за сезон, посещаемость. Плюс мини-игры: колесо фортуны и прогнозы на ЧМ-2026.</p>
-        <p><em>как сделано</em>Бэкенд на FastAPI, бот на Python, данные из протоколов матчей. Пользуется вся команда и болельщики.</p>
+        <p><em>что внутри</em>Отметки на тренировки, карточки игроков в стиле FIFA, рейтинг игроков по протоколам матчей, посещаемость, админ-панель и рассылки. Плюс мини-игры: колесо фортуны, прогнозы на ЧМ-2026 и фэнтези-лига.</p>
+        <p><em>как сделано</em>Бот на aiogram 3, сайт на FastAPI, база SQLite, всё работает на моём сервере. Новые функции добавляю по одной и выкатываю только после проверки. Пользуется вся команда и болельщики.</p>
       </div>
-      <div class="chips"><span>python</span><span>fastapi</span><span>telegram bot</span><span>sql</span></div>
+      <div class="chips"><span>python</span><span>aiogram 3</span><span>fastapi</span><span>sqlite</span><span>linux</span><span>systemd</span></div>
       <a class="more" href="https://t.me/FCMianova_bot">Открыть бота →</a>
     </div>
+
+    <div class="sub">аналитика и машинное обучение</div>
+
+    <div class="minis">
+      <div class="case mini">
+        <div class="where">SQL · PostgreSQL</div>
+        <h3>Анализ рынка вакансий аналитиков на hh.ru</h3>
+        <p>Разобрал около 1 800 вакансий: зарплаты, регионы, работодатели, грейды и навыки. Москва даёт около 70% вакансий, основной спрос на опыт 1–3 года, а крупные компании почти никогда не пишут зарплату. Отдельно описал ограничения данных и где выводам нельзя доверять.</p>
+        <div class="chips"><span>sql</span><span>postgresql</span><span>dbeaver</span></div>
+        <a class="more" href="https://github.com/toptyga88/HH.RU-Analysis">Запросы и выводы →</a>
+      </div>
+
+      <div class="case mini">
+        <div class="where">ML · NLP · Streamlit</div>
+        <h3>Футбольный обозреватель</h3>
+        <p>Веб-приложение на данных 96 000+ матчей из 18 лиг. Аналитика лиг с фильтрами, предсказание исхода матча тремя моделями и генерация текстовых обзоров матчей на русском языке.</p>
+        <div class="chips"><span>pandas</span><span>scikit-learn</span><span>natasha</span><span>pymorphy3</span><span>streamlit</span></div>
+        <a class="more" href="https://github.com/toptyga88/footballapp">Код на GitHub →</a>
+      </div>
+
+      <div class="case mini">
+        <div class="where">Университет Иннополис</div>
+        <h3>Вероятность страхового случая</h3>
+        <p>67 тысяч автостраховых полисов, редкий целевой класс. Исследовал признаки, обучил и сравнил логистическую регрессию, дерево решений и KNN, лучшим по балансу метрик оказалось дерево.</p>
+        <div class="chips"><span>pandas</span><span>scikit-learn</span><span>statsmodels</span><span>seaborn</span></div>
+        <a class="more" href="https://github.com/toptyga88/Innopolis">Ноутбуки на GitHub →</a>
+      </div>
+
+      <div class="case mini">
+        <div class="where">Университет Иннополис</div>
+        <h3>Анализ игроков FIFA по странам</h3>
+        <p>Исследовательский анализ: возраст, рейтинг, зарплаты и рыночная стоимость по позициям и странам, связь рейтинга с ценой. Интерактивные графики и распределения.</p>
+        <div class="chips"><span>pandas</span><span>plotly</span><span>seaborn</span><span>matplotlib</span></div>
+        <a class="more" href="https://github.com/toptyga88/Innopolis">Ноутбуки на GitHub →</a>
+      </div>
+    </div>
+
+    <p class="also">Ещё делаю контент для клуба с помощью генеративных нейросетей (стикерпак, короткие ролики) и свёрстал этот сайт сам.</p>
   </div>
 </section>
 
@@ -304,15 +367,15 @@
     <div class="skills">
       <div>
         <h3>Данные и код</h3>
-        <div class="chips"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>pandas</span><span>NumPy</span><span>REST API</span><span>Jupyter</span><span>Git</span></div>
+        <div class="chips"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>pandas</span><span>NumPy</span><span>statsmodels</span><span>SQLite</span><span>REST API</span><span>FastAPI</span><span>Jupyter</span><span>scikit-learn</span><span>Streamlit</span><span>Git</span><span>Linux</span><span>Nginx</span></div>
       </div>
       <div>
         <h3>Таблицы и отчёты</h3>
-        <div class="chips"><span>Excel</span><span>Power Query</span><span>VBA</span><span>Google Sheets</span><span>1С</span><span>сводные таблицы</span></div>
+        <div class="chips"><span>Excel</span><span>Power Query</span><span>VBA</span><span>Google Sheets</span><span>1С</span><span>сводные таблицы</span><span>DBeaver</span></div>
       </div>
       <div>
         <h3>BI и визуализация</h3>
-        <div class="chips"><span>DataLens</span><span>Power BI</span><span>Plotly</span><span>Seaborn</span><span>PowerPoint</span></div>
+        <div class="chips"><span>DataLens</span><span>Power BI</span><span>Plotly</span><span>Seaborn</span><span>PowerPoint</span><span>ChatGPT</span><span>Claude</span><span>Copilot</span></div>
       </div>
     </div>
   </div>
@@ -359,7 +422,7 @@
       <a href="https://t.me/toptyga7"><small>telegram</small>@toptyga7</a>
       <a href="tel:+79629998990"><small>телефон</small>+7 (962) 999-89-90</a>
       <a href="mailto:lolikme123@yandex.ru"><small>почта</small>lolikme123@yandex.ru</a>
-      <a href="https://github.com/toptyga78"><small>github</small>toptyga78</a>
+      <a href="https://github.com/toptyga88"><small>github</small>toptyga88</a>
     </div>
   </div>
 </section>
